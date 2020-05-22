@@ -1,0 +1,16 @@
+body {
+  /** constants definitions **/
+  --card-bg-color: #fefae3;
+  --card-font-color: #857d68;
+  --card-font-highlight-color: #34b2c6;
+  --card-button-color: #25c5b6;
+  --card-separator-color: #eee2c8;
+
+  color: var(--card-font-color);
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+}
+
+.header {
+  text-align: center;
+}
