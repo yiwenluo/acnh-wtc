@@ -15,12 +15,21 @@ class AcHead extends React.Component {
 
 class AcnhWTC extends React.Component {
 
+  filterNow(list) {
+    const now = new Date();
+    const hour = now.getHours();
+    const isNorthernHemi = getHemisphere() !== 'S';
+    const month = now.getMonth() + 1;
+
+    return list.filter((item) => {
+      return item.available(isNorthernHemi, month, hour);
+    });
+  }
+
   render() {
-    console.log();
-
-    const bugs = this.props.data.bugs;
-    const fish = this.props.data.fish;
-
+    const bugs = this.filterNow(this.props.data.bugs);
+    const fish = this.filterNow(this.props.data.fish);
+    
     return (
       <div>
         <AcHead />
@@ -31,6 +40,11 @@ class AcnhWTC extends React.Component {
 }
 
 const data = new DataStore();
+
+function getHemisphere() {
+  // TODO: implement the real check usinggeolocation APIs. 
+  return 'N';
+}
 
 // ========================================
 

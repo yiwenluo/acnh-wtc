@@ -2,6 +2,9 @@ import { DATA_BUGS } from './data/bugs';
 import { DATA_FISH } from './data/fish';
 import { ICON_BUGS } from './data/bugs-icon';
 import { ICON_FISH } from './data/fish-icon';
+import {monthToNumber} from './time-utils';
+import {Bug, Fish} from './catchable';
+
 
 
 export class DataStore {
@@ -13,32 +16,34 @@ export class DataStore {
 
   computeBugData(data, icons = []) {
     return data.map((item, index) => {
-      const time = this.parseTime_(item.time);
-      const { hemi, months } = this.parseMonth_(item.month);
+      const timeData = this.parseTimeData_(item.time, item.month);
       const icon = this.findIcon_(item.name, index, icons);
       return new Bug(item.id, item.name, icon, item.location, 
-        this.parseValue_(item.value), time, hemi, months);
+        this.parseValue_(item.value), timeData);
     });
   }
 
   computeFishData(data, icons = []) {
     return data.map((item, index) => {
-      const time = this.parseTime_(item.time);
-      const { hemi, months } = this.parseMonth_(item.month);
+      const timeData = this.parseTimeData_(item.time, item.month);
       const icon = this.findIcon_(item.name, index, icons);
       return new Fish(item.id, item.name, icon, item.location, 
-        this.parseValue_(item.value), time, hemi, months, item.size);
+        this.parseValue_(item.value), timeData, item.size);
     });
   }
 
   findIcon_(name, index, icons) {
     let icon = icons[index];
-    const token = name.toLowerCase().replace(' ', '').replace('-', '');
+    const token = `-${
+      name.toLowerCase().replaceAll(' ', '').replaceAll('-', '')}.`;
     if (!icon || icon.indexOf(token) <= 0) {
       icon = icons.find((url) => {
         return url.indexOf(token) > 0;
       })
     } 
+    if (!icon) {
+      console.log(name)
+    }
     return icon;
   }
 
@@ -46,43 +51,54 @@ export class DataStore {
     return Number(value.replace(',', ''));
   }
 
-  parseTime_(timeStr) {
-    const regex = /\s/gi;
-    let time = timeStr.replace(regex, '');
-    return time.toUpperCase();
+  parseTimeData_(time, month) {
+    return {
+      hours: this.parseTime_(time),
+      months: this.parseMonth_(month),
+    };
   }
 
-  parseMonth_(monthStr) {
-    // TODO: show better month
-    return {hemi: 'nornthern', months: monthStr};
+  parseTime_(time) {
+    let hours = [];
+    if (time.toLowerCase() === "all day") {
+      hours = [0, 24]
+    } else if (time) {
+      const noSpace = time.replaceAll(' ', '');
+      const splitted = noSpace.split('-');
+      for (const part of splitted) {
+        const regex = /([0-9]+)[ap]\.m\./g;
+        let hour = Number(regex.exec(part)[1]);
+        if (part.indexOf('p') > 0) {
+          hour += 12;
+        }
+        hours.push(hour);
+      }
+    }
+    return hours;
   }
 
-}
-
-class Catchable {
-  constructor(id, name, icon, location, value, time, hemi, months) {
-    this.id = id;
-    this.name = name;
-    this.icon = icon;
-    this.location = location;
-    this.value = value;
-    this.time = time;
-    this.hemi = hemi;
-    this.months = months;
-  }
-}
-
-export class Bug extends Catchable {
-
-  // constructor(id, name, location, value, time, hemi, months) {
-  //   super(id, name, location, value, time, hemi, months);
-  // }
-}
-
-export class Fish extends Catchable {
-
-  constructor(id, name, icon, location, value, time, hemi, months, size) {
-    super(id, name, icon, location, value, time, hemi, months);
-    this.size = size;
+  parseMonth_(month) {
+    let months = [];
+    if (month.indexOf("Year-round") >= 0) {
+      months = [[1, 12]];
+    } else if (months) {
+      const northern = month.replaceAll(' ', '').split('/')[0].trim();
+      const monthStr = northern.slice(0, northern.indexOf('('));
+      for (const part of monthStr.split(',')) {
+        const rangeRegex = /([a-z]+)(-([a-z]+))?/gi
+        const match = rangeRegex.exec(part);
+        const seg = []
+        if (match[1]) {
+          seg.push(monthToNumber(match[1]));
+        }
+        if (match[3]) {
+          seg.push(monthToNumber(match[3]));
+        }
+        if (seg.length > 0) {
+          months.push(seg);
+        }
+      }
+    }
+    return months;
   }
 }

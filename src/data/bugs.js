@@ -58,7 +58,7 @@ export const DATA_BUGS = [
   },
   {
     "id": "8",
-    "name": "Monach Butterfly",
+    "name": "Monarch Butterfly",
     "location": "Flying",
     "value": "140",
     "time": "4 a.m. - 5 p.m.",
@@ -605,7 +605,7 @@ export const DATA_BUGS = [
     "name": "Pill Bug",
     "location": "Hit rocks",
     "value": "250",
-    "time": "11 p.m. - 4 p.m.",
+    "time": "11 p.m. - 4 a.m.",
     "month": "September-June (Northern) / March-December (Southern)"
   },
   {

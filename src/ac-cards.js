@@ -18,34 +18,11 @@ export class AcCards extends React.Component {
           icon={item.icon} 
           location={item.location} 
           value={item.value} 
-          size={item.size}
-          time={item.time}
-          month={item.month}/>
+          size={item.getDisplaySize()}
+          time={item.getDisplayTime()}
+          month={item.getDisplayMonth()}/>
       );
     }
-
-    // for (const bug of this.props.bugs) {
-    //   cards.push(<AcCard 
-    //       key={bug.name}
-    //       name={bug.name} 
-    //       icon={bug.icon} 
-    //       location={bug.location} 
-    //       value={bug.value} 
-    //       time={bug.time}
-    //       month={bug.month}/>
-    //   );
-    // }
-
-    // const rayIcon = 'https://vignette.wikia.nocookie.net/animalcrossing/images/d/db/NH-Icon-ray.png/revision/latest/scale-to-width-down/96?cb=20200401003129';
-    // const tadIcon = 'https://vignette.wikia.nocookie.net/animalcrossing/images/1/1c/NH-Icon-tadpole.png/revision/latest/scale-to-width-down/96?cb=20200401003129';
-    // const HammerheadIcon = 'https://vignette.wikia.nocookie.net/animalcrossing/images/2/25/NH-Icon-hammerheadshark.png/revision/latest/scale-to-width-down/96?cb=20200401003129';
-
-    // cards = [
-    //   (<AcCard key="ray" name="Ray" icon={rayIcon} location="Sea" value="3000" size="X Large"/>),
-    //   (<AcCard key="tadpole" name="Tadpole" icon={tadIcon} location="Pond" value="100" size="Smallest"/>),
-    //   (<AcCard key="shark" name="Hammerhead Shark" icon={HammerheadIcon} location="Sea" value="18000" size="Largest"/>),
-    // ];
-
     
     return (
       <div className="card-list">
@@ -70,7 +47,8 @@ class AcCard extends React.Component {
             <div className="value">{this.props.value}</div>
           </div>
           <div className="col">
-            <img className="icon" src={this.props.icon} />
+            <img className="icon" src={this.props.icon} 
+                alt={this.props.name} />
           </div>
         </div>
         <div className="row"> 
@@ -83,10 +61,10 @@ class AcCard extends React.Component {
               </div>)
           }
           <div className="metadata time">
-            {this.props.time || '4PM - 9AM.x'}
+            {this.props.time}
           </div>
           <div className="metadata month">
-          {this.props.month || 'Nov. - Mar.x'}
+          {this.props.month}
           </div>
         </div>
       </div>
