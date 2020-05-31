@@ -22,11 +22,11 @@ class Catchable {
 
       let inMonthRange = false;
       if (monthStart < monthEnd) {
-        if (month > monthStart && month < monthEnd) {
+        if (month >= monthStart && month <= monthEnd) {
           inMonthRange = true;
         }
       } else {
-        if (month > monthStart || month < monthEnd) {
+        if (month >= monthStart || month <= monthEnd) {
           inMonthRange = true;
         }
       }
@@ -37,11 +37,11 @@ class Catchable {
 
         let inHourRange = false
         if (hourStart < hourEnd) {
-          if (hour > hourStart && hour < hourEnd) {
+          if (hour >= hourStart && hour <= hourEnd) {
             inHourRange = true;
           }
         } else {
-          if (hour > hourStart || hour < hourEnd) {
+          if (hour >= hourStart || hour <= hourEnd) {
             inHourRange = true;
           }
         }
