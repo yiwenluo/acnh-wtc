@@ -2,7 +2,7 @@
   "name": "acnh-wtc",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yiwenluo.github.io/acnh-wtc/",
+  "homepage": "https://yiwenluo.me/acnh-wtc/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
