@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {DataStore} from './data-store.js';
-// import {AcControls} from './ac-controls.js'
+import {Provider} from 'react-redux';
+import store from './redux/store'
+
 import {AcnhWtcApp} from './ac-wtc-app.js'
 import './index.css';
 
-const data = new DataStore();
 
 // ========================================
 
 ReactDOM.render(
-  <AcnhWtcApp data={data}/>,
+  <Provider store={store}>
+    <AcnhWtcApp/>
+  </Provider>,
   document.getElementById('root')
 );

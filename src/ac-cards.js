@@ -1,17 +1,21 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { getCatchablesByVisibilityFilter } from "./redux/selectors";
+
 import './ac-cards.css'
 
-export class AcCards extends React.Component {
+const mapStateToProps = state => {
+  const { visibilityFilter } = state;
+  const catchables = getCatchablesByVisibilityFilter(state, visibilityFilter);
+  return { catchables };
+};
+
+class AcCards extends React.Component {
 
   render() {
     let cards = [];
 
-    const catchables = [].concat(this.props.fish).concat(this.props.bugs);
-    const sorted = catchables.sort((a, b) => {
-      return b.value - a.value;
-    });
-
-    for (const item of sorted) {
+    for (const item of this.props.catchables) {
       cards.push(<AcCard 
           key={item.name}
           name={item.name} 
@@ -71,3 +75,5 @@ class AcCard extends React.Component {
     );
   }
 }
+
+export default connect(mapStateToProps)(AcCards);
