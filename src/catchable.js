@@ -59,8 +59,14 @@ class Catchable {
   }
 
   getDisplayTime() {
-    const start = get12HrTime(this.timeData.hours[0]);
-    const end  = get12HrTime(this.timeData.hours[1]);
+    const startTime = this.timeData.hours[0];
+    const endTime = this.timeData.hours[1];
+    if (startTime === 0 && endTime === 24) {
+      return 'All day';
+    }
+
+    const start = get12HrTime(startTime);
+    const end  = get12HrTime(endTime);
     let text = 'N/A';
     if (start) {
       text = `${start}`;
