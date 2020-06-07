@@ -1,0 +1,14 @@
+.filters {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.filter {
+  font-size: 20px;
+  margin: 0 0.5rem;
+}
+
+.filter.selected {
+  font-weight: 900;
+  text-decoration: underline;
+}

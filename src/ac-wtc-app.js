@@ -2,6 +2,7 @@
 import React from 'react';
 
 import AcCards from './ac-cards.js'
+import AcFilter from './ac-filter.js'
 import './ac-wtc-app.css';
 
 // function getHemisphere() {
@@ -29,6 +30,7 @@ export class AcnhWtcApp extends React.Component {
     return (
       <div>
         <h2 className="header">ACNH - What To Catch</h2>
+        <AcFilter />
         <AcCards/>
       </div>
     );
