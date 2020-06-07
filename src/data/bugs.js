@@ -82,7 +82,7 @@ export const DATA_BUGS = [
   },
   {
     "id": "11",
-    "name": "Raja Brooke's Birdwing",
+    "name": "Rajah Brooke's Birdwing",
     "location": "Flying",
     "value": "2,500",
     "time": "8 a.m. - 5 p.m.",
@@ -514,7 +514,7 @@ export const DATA_BUGS = [
   },
   {
     "id": "65",
-    "name": "Horned Herucles",
+    "name": "Horned Hercules",
     "location": "On trees",
     "value": "",
     "time": "5 p.m. - 8 a.m.",
