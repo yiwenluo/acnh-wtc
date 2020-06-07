@@ -28,13 +28,16 @@ const AcFilter = (props) => {
   );
 };
 
-
 const mapStateToProps = state => {
   return { activeFilter: state.visibilityFilter };
 };
 
+const mapDispatchToProps = {
+  setFilter,
+}
+
 // export default VisibilityFilters;
 export default connect(
   mapStateToProps,
-  { setFilter }
+  mapDispatchToProps
 )(AcFilter);
