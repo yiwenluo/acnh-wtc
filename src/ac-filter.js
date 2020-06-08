@@ -1,43 +1,39 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { VISIBILITY_FILTERS } from "./constants";
-import { setFilter } from './redux/actions';
 import './ac-filter.css';
 
-const AcFilter = (props) => {
-
+const AcFilterOption = (props) => {
   return (
-    <div className="filters">
-      {Object.keys(VISIBILITY_FILTERS).map(filterKey => {
-        const currentFilter = VISIBILITY_FILTERS[filterKey];
-        return (
-          <span key={`visibility-filter-${currentFilter}`}
-            className={
-              'filter ' + (
-                currentFilter === props.activeFilter ? 'selected' : '')
-            } 
-            onClick={() => {
-              props.setFilter(currentFilter);
-            }}
-          >
-            {currentFilter}
-          </span>
-        );
-      })}
+    <div className={`filter-option ${props.active ? 'active' : ''}`}
+      onClick={() => {
+        props.setOptionActive(props.option)
+      }}>
+      {props.option}
+    </div>
+  );
+}
+
+const AcFilter = (props) => {
+  const options = props.options.map((opt) => {
+    return (
+      <AcFilterOption 
+        key={`filter-option-${opt}`} 
+        option={opt}
+        active={opt === props.activeOption}
+        setOptionActive={(option) => {
+          props.setActive(props.name, option);
+        }}
+        />
+    );
+  })
+  return (
+    <div className="filter-options">
+      {options}
     </div>
   );
 };
 
-const mapStateToProps = state => {
-  return { activeFilter: state.visibilityFilter };
-};
-
-const mapDispatchToProps = {
-  setFilter,
-}
-
-// export default VisibilityFilters;
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  null,
+  null
 )(AcFilter);

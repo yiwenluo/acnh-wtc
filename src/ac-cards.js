@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { getCatchablesByVisibilityFilter } from "./redux/selectors";
+import { getCatchablesByFilters } from "./redux/selectors";
 
 import './ac-cards.css'
 
 const mapStateToProps = state => {
-  const { visibilityFilter } = state;
-  const catchables = getCatchablesByVisibilityFilter(state, visibilityFilter);
+  const { availabilityFilter, typeFilter } = state;
+  const catchables = getCatchablesByFilters(
+      state, availabilityFilter.activeOption, typeFilter.activeOption);
   return { catchables };
 };
 

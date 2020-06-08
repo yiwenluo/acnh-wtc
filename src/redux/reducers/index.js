@@ -1,5 +1,12 @@
 import { combineReducers } from "redux";
-import visibilityFilter from "./visibilityFilter";
 import catchables from "./catchables";
+import fab from "./fab";
+import availabilityFilter from "./availabilityFilter";
+import typeFilter from "./typeFilter";
 
-export default combineReducers({ catchables, visibilityFilter });
+export default combineReducers({
+  availabilityFilter, 
+  catchables, 
+  fab, 
+  typeFilter,
+});

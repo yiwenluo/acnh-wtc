@@ -1,5 +1,10 @@
-export const VISIBILITY_FILTERS = {
-  ALL: "All",
-  ONLY_FISH: "Fish",
-  ONLY_BUG: "Bugs"
+export const TYPES = {
+  ALL: 'All',
+  BUGS: 'Bugs',
+  FISH: 'Fish',
 };
+
+export const AVAIL = {
+  NOW: 'Now',
+  ALL: 'All',
+}

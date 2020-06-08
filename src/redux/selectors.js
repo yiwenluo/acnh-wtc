@@ -1,5 +1,5 @@
-import { VISIBILITY_FILTERS } from "../constants";
 import { Fish, Bug } from "../catchable.js";
+import {AVAIL, TYPES} from "../constants";
 
 
 const getAllCatchables = store => 
@@ -16,17 +16,26 @@ const filterNow = (catchables) => {
     });
 }  
 
-export const getCatchablesByVisibilityFilter = (store, visibilityFilter) => {
-  const catchables = filterNow(getAllCatchables(store));
-  catchables.sort((a, b) => b.value - a.value);
-
-  switch (visibilityFilter) {
-    case VISIBILITY_FILTERS.ONLY_FISH:
-      return catchables.filter(catchable => catchable instanceof Fish);
-    case VISIBILITY_FILTERS.ONLY_BUG:
-      return catchables.filter(catchable => catchable instanceof Bug);
-    case VISIBILITY_FILTERS.ALL:
-    default:
-      return catchables;
+export const getCatchablesByFilters = 
+    (store, availabilityFilter, typeFilter) => {
+  let catchables = getAllCatchables(store);
+  if (availabilityFilter === AVAIL.NOW ) {
+    catchables = filterNow(catchables);
   }
+
+  switch (typeFilter) {
+    case TYPES.FISH:
+      catchables = catchables.filter(catchable => catchable instanceof Fish);
+      break;
+    case TYPES.BUGS:
+      catchables = catchables.filter(catchable => catchable instanceof Bug);
+      break;
+    case TYPES.ALL:
+    default:
+      // Do nothing.
+      break;
+  }
+
+  catchables.sort((a, b) => b.value - a.value);
+  return catchables;
 };
