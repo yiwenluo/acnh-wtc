@@ -35,8 +35,7 @@ export class DataStore {
   findIcon_(name, index, icons) {
     let icon = icons[index];
     const token = `-${
-      name.toLowerCase().replaceAll(' ', '')
-      .replaceAll('-', '').replaceAll('\'', '')}.`;
+      name.toLowerCase().replace(/[\s\-\\]]/g, '')}.`;
     if (!icon || icon.indexOf(token) <= 0) {
       icon = icons.find((url) => {
         return url.indexOf(token) > 0;
@@ -64,7 +63,7 @@ export class DataStore {
     if (time.toLowerCase() === "all day") {
       hours = [0, 24]
     } else if (time) {
-      const noSpace = time.replaceAll(' ', '');
+      const noSpace = time.replace(/\s/g, '');
       const splitted = noSpace.split('-');
       for (const part of splitted) {
         const regex = /([0-9]+)[ap]\.m\./g;
@@ -83,7 +82,7 @@ export class DataStore {
     if (month.indexOf("Year-round") >= 0) {
       months = [[1, 12]];
     } else if (months) {
-      const northern = month.replaceAll(' ', '').split('/')[0].trim();
+      const northern = month.replace(/\s/g, '').split('/')[0].trim();
       const monthStr = northern.slice(0, northern.indexOf('('));
       for (const part of monthStr.split(',')) {
         const rangeRegex = /([a-z]+)(-([a-z]+))?/gi

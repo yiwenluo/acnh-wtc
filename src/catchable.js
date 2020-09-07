@@ -55,7 +55,7 @@ class Catchable {
   }
 
   getDisplaySize() {
-    return this.size && this.size.replaceAll(' ', '');
+    return this.size && this.size.replace('/\s/g', '');
   }
 
   getDisplayTime() {
