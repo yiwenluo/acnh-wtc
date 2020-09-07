@@ -35,7 +35,7 @@ export class DataStore {
   findIcon_(name, index, icons) {
     let icon = icons[index];
     const token = `-${
-      name.toLowerCase().replace(/[\s\-\\]]/g, '')}.`;
+      name.toLowerCase().replace(/[\s\-\\]/g, '')}.`;
     if (!icon || icon.indexOf(token) <= 0) {
       icon = icons.find((url) => {
         return url.indexOf(token) > 0;
