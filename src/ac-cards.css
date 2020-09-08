@@ -40,12 +40,14 @@
 .metadata {
   display: flex;
   align-items: baseline;
+  flex: 1 1 0; /* all items share the same width. */
 }
 
 .metadata::before {
   content: '';
   display: block;
   width: 10px;
+  min-width: 10px;
   height: 10px;
   background-color: var(--card-separator-color);
   border-radius: 50%;
