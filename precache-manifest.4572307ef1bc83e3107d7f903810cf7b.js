@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f3b70dfcc9420274cdc58647a8c5a0d2",
+    "revision": "acbe9fcaadb04a0b7814930946b2fe07",
     "url": "/acnh-wtc/index.html"
   },
   {
-    "revision": "ace0dac0ad65a99e4e3f",
-    "url": "/acnh-wtc/static/css/main.927a5cca.chunk.css"
+    "revision": "b5747d3cecebdfa4ef54",
+    "url": "/acnh-wtc/static/css/main.63e7e950.chunk.css"
   },
   {
     "revision": "52dc2cbb90a0ee44c4e7",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/acnh-wtc/static/js/2.b7fbd43e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ace0dac0ad65a99e4e3f",
-    "url": "/acnh-wtc/static/js/main.a17a82a8.chunk.js"
+    "revision": "b5747d3cecebdfa4ef54",
+    "url": "/acnh-wtc/static/js/main.61fce6bd.chunk.js"
   },
   {
     "revision": "c31246b53d9e5cd79e63",
