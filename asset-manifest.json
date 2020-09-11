@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/acnh-wtc/static/css/main.bde33bc4.chunk.css",
+    "main.css": "/acnh-wtc/static/css/main.888ebfa8.chunk.css",
     "main.js": "/acnh-wtc/static/js/main.61fce6bd.chunk.js",
     "main.js.map": "/acnh-wtc/static/js/main.61fce6bd.chunk.js.map",
     "runtime-main.js": "/acnh-wtc/static/js/runtime-main.280451a3.js",
@@ -8,15 +8,15 @@
     "static/js/2.b7fbd43e.chunk.js": "/acnh-wtc/static/js/2.b7fbd43e.chunk.js",
     "static/js/2.b7fbd43e.chunk.js.map": "/acnh-wtc/static/js/2.b7fbd43e.chunk.js.map",
     "index.html": "/acnh-wtc/index.html",
-    "precache-manifest.e24d2e5f38b7fc345ed1304eb2d1eeab.js": "/acnh-wtc/precache-manifest.e24d2e5f38b7fc345ed1304eb2d1eeab.js",
+    "precache-manifest.c2f590cced1c39e5e29f21db64dccc91.js": "/acnh-wtc/precache-manifest.c2f590cced1c39e5e29f21db64dccc91.js",
     "service-worker.js": "/acnh-wtc/service-worker.js",
-    "static/css/main.bde33bc4.chunk.css.map": "/acnh-wtc/static/css/main.bde33bc4.chunk.css.map",
+    "static/css/main.888ebfa8.chunk.css.map": "/acnh-wtc/static/css/main.888ebfa8.chunk.css.map",
     "static/js/2.b7fbd43e.chunk.js.LICENSE.txt": "/acnh-wtc/static/js/2.b7fbd43e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.280451a3.js",
     "static/js/2.b7fbd43e.chunk.js",
-    "static/css/main.bde33bc4.chunk.css",
+    "static/css/main.888ebfa8.chunk.css",
     "static/js/main.61fce6bd.chunk.js"
   ]
 }
