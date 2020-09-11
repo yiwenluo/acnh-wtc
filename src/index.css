@@ -14,8 +14,5 @@ body {
 
 #root {
   --pattern: rgba(238, 226, 200, .5); /* --card-separator-color */
-  background: repeating-linear-gradient(
-    45deg, 
-    transparent, transparent 50px, 
-    var(--pattern) 50px, var(--pattern) 100px);
+  background-color: var(--pattern);
 }
