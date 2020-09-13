@@ -1,5 +1,5 @@
 
-const rp = require("request-promise");
+const axios = require('axios');
 const cheerio = require("cheerio");
 const fs = require('fs');
 
@@ -14,12 +14,19 @@ const BUGS_FILE_PATH = `${DATA_DIR}/bugs.js`;
 const SEA_CREATURE_FILE_PATH = `${DATA_DIR}/sea.js`;
 
 function getRows(url) {
-  return rp(url).then((html) => {
-    if (html) {
-      const $ = cheerio.load(html);
-      const rows = $(".p-data-table > tbody > tr");
-      console.log(`Found ${rows.length} rows`);
-      return [rows, $];
+  return axios.get(url).then((response) => {
+    if (response.status === 200) {
+      const html = response.data;
+      if (html) {
+        const $ = cheerio.load(html);
+        const rows = $(".p-data-table > tbody > tr");
+        console.log(`Found ${rows.length} rows`);
+        return [rows, $];
+      } else {
+        console.error("Empty HTML");
+      }
+    } else {
+      console.error("Request error", response.status);
     }
   });
 }
