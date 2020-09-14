@@ -1,7 +1,5 @@
 import { DATA_BUGS } from './data/bugs';
 import { DATA_FISH } from './data/fish';
-import { ICON_BUGS } from './data/bugs-icon';
-import { ICON_FISH } from './data/fish-icon';
 import {monthToNumber} from './time-utils';
 import {Bug, Fish} from './catchable';
 
@@ -10,41 +8,31 @@ import {Bug, Fish} from './catchable';
 export class DataStore {
 
   constructor() {
-    this.bugs = this.computeBugData(DATA_BUGS, ICON_BUGS);
-    this.fish = this.computeFishData(DATA_FISH, ICON_FISH);
+    this.bugs = this.computeBugData(DATA_BUGS);
+    this.fish = this.computeFishData(DATA_FISH);
   }
 
-  computeBugData(data, icons = []) {
-    return data.map((item, index) => {
+  computeBugData(data) {
+    return data.map((item,) => {
       const timeData = this.parseTimeData_(item.time, item.month);
-      const icon = this.findIcon_(item.name, index, icons);
+      const icon = this.getIconUrl_(item.name, './assets/bug');
       return new Bug(item.id, item.name, icon, item.location, 
         this.parseValue_(item.value), timeData);
     });
   }
 
-  computeFishData(data, icons = []) {
-    return data.map((item, index) => {
+  computeFishData(data) {
+    return data.map((item) => {
       const timeData = this.parseTimeData_(item.time, item.month);
-      const icon = this.findIcon_(item.name, index, icons);
+      const icon = this.getIconUrl_(item.name, './assets/fish');
       return new Fish(item.id, item.name, icon, item.location, 
         this.parseValue_(item.value), timeData, item.size);
     });
   }
 
-  findIcon_(name, index, icons) {
-    let icon = icons[index];
-    const token = `-${
-      name.toLowerCase().replace(/[\s\-\\']/g, '')}.`;
-    if (!icon || icon.indexOf(token) <= 0) {
-      icon = icons.find((url) => {
-        return url.indexOf(token) > 0;
-      })
-    } 
-    if (!icon) {
-      console.log(name)
-    }
-    return icon;
+  getIconUrl_(name, basePath) {
+    const token = name.toLowerCase().replace(/[\s\-\\']/g, '');
+    return `${basePath}/${token}.png`;
   }
 
   parseValue_(value) {
