@@ -6,6 +6,7 @@ const data = new DataStore();
 const initialState = {
   fish: data.fish,
   bugs: data.bugs,
+  sea: data.sea,
 };
 
 export default function(state = initialState, action) {

@@ -1,9 +1,11 @@
-import { Fish, Bug } from "../catchable.js";
+import { Fish, Bug, SeaCreature } from "../catchable.js";
 import {AVAIL, TYPES} from "../constants";
 
 
 const getAllCatchables = store => 
-    [].concat(store.catchables.fish).concat(store.catchables.bugs);
+    [].concat(store.catchables.fish)
+      .concat(store.catchables.bugs)
+      .concat(store.catchables.sea);
 
 const filterNow = (catchables) => {
     const now = new Date();
@@ -29,6 +31,10 @@ export const getCatchablesByFilters =
       break;
     case TYPES.BUGS:
       catchables = catchables.filter(catchable => catchable instanceof Bug);
+      break;
+    case TYPES.SEA:
+      catchables = catchables.filter(catchable => 
+          catchable instanceof SeaCreature);
       break;
     case TYPES.ALL:
     default:

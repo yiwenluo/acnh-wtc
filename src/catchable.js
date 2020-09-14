@@ -106,7 +106,15 @@ class Catchable {
   }
 }
 
+
 export class Bug extends Catchable {
+  
+}
+
+export class SeaCreature extends Catchable {
+  constructor(id, name, icon, value, timeData) {
+    super(id, name, icon, "Sea", value, timeData);
+  }
 }
 
 export class Fish extends Catchable {
@@ -116,3 +124,4 @@ export class Fish extends Catchable {
     this.size = size;
   }
 }
+

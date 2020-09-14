@@ -1,7 +1,8 @@
 import { DATA_BUGS } from './data/bugs';
 import { DATA_FISH } from './data/fish';
+import { DATA_SEA_CREATURES } from './data/sea';
 import {monthToNumber} from './time-utils';
-import {Bug, Fish} from './catchable';
+import {Bug, Fish, SeaCreature} from './catchable';
 
 
 
@@ -10,6 +11,7 @@ export class DataStore {
   constructor() {
     this.bugs = this.computeBugData(DATA_BUGS);
     this.fish = this.computeFishData(DATA_FISH);
+    this.sea = this.computeSeaData(DATA_SEA_CREATURES);
   }
 
   computeBugData(data) {
@@ -26,6 +28,15 @@ export class DataStore {
       const timeData = this.parseTimeData_(item.time, item.month);
       const icon = this.getIconUrl_(item.name, './assets/fish');
       return new Fish(item.id, item.name, icon, item.location, 
+        this.parseValue_(item.value), timeData, item.size);
+    });
+  }
+
+  computeSeaData(data) {
+    return data.map((item) => {
+      const timeData = this.parseTimeData_(item.time, item.month);
+      const icon = this.getIconUrl_(item.name, './assets/sea');
+      return new SeaCreature(item.id, item.name, icon, 
         this.parseValue_(item.value), timeData, item.size);
     });
   }
