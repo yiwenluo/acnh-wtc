@@ -12,7 +12,7 @@ export class AcnhWtcApp extends React.Component {
   render() {
     
     return (
-      <div class="app-container">
+      <div className="app-container">
         <Header className="header"/>
         <AcCards/>
         <AcFab />
