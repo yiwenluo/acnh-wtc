@@ -59,6 +59,12 @@ function scrapeFish() {
   });
 }
 
+function fixBugName(name) {
+  return name.replace('Raja', 'Rajah')
+  .replace('Herucles', 'Hercules')
+  .replace('Monach', 'Monarch');
+}
+
 function scrapeBugs() {
   getRows(BUG_URL).then(([rows, $]) => {
     if (rows) {
@@ -67,7 +73,7 @@ function scrapeBugs() {
         const cells = $(this).children('td');
         bugList.push({
           "id": $(cells[0]).text(),
-          "name": $(cells[1]).text(),
+          "name": fixBugName($(cells[1]).text()),
           "location": $(cells[2]).text(),
           "value": $(cells[3]).text(),
           "time": $(cells[4]).text(),
