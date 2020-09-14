@@ -67,9 +67,10 @@ function scrape(pageUrl, assetDir) {
 }
 
 function main() {
-  scrape(FISH_URL, './src/assets/fish');
-  scrape(BUG_URL, './src/assets/bug');
-  scrape(SEA_CREATURE_URL, './src/assets/sea');
+  const basePath = './public/assets/';
+  scrape(FISH_URL, `${basePath}fish`);
+  scrape(BUG_URL, `${basePath}bug`);
+  scrape(SEA_CREATURE_URL, `${basePath}sea`);
 }
 
 main();
