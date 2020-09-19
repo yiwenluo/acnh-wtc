@@ -23,21 +23,24 @@
   flex-direction: column;
   width: auto;
   height: auto;
-  padding: 8px;
 }
 
 .button-row {
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  padding-bottom: 4px;
 }
 
 .done-button {
   background: none;
   border: none;
   font-size: 1em;
+  font-weight: 700;
+  font-family: var(--app-font-family);
   color: var(--card-font-color);
   margin-left: auto;
+  padding: inherit;
 }
 
 .label {

@@ -20,7 +20,7 @@ const expandedFab = (props) => {
     <div className="fab expanded">
       <AcFilterMenu />
       <div className="button-row">
-        <button className="done-button" onClick={props.collapseFab}>
+        <button className="done-button label" onClick={props.collapseFab}>
           Done
         </button>
       </div>

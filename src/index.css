@@ -5,9 +5,10 @@ body {
   --card-font-highlight-color: #34b2c6;
   --card-button-color: #25c5b6;
   --card-separator-color: #eee2c8;
+  --app-font-family: 'Quicksand', sans-serif;
 
   color: var(--card-font-color);
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--app-font-family);
   font-weight: 600;
   margin: 0;
 }

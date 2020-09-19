@@ -1,8 +1,7 @@
 .filter-options {
   display: flex;
   height: 32px;
-  background: var(--card-font-color);
-  color: var(--card-bg-color);
+  color: var(--card-font-color);
   border-radius: 16px;
   justify-content: space-between;
 }
