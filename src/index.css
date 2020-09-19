@@ -6,14 +6,11 @@ body {
   --card-button-color: #25c5b6;
   --card-separator-color: #eee2c8;
   --app-font-family: 'Quicksand', sans-serif;
+  --pattern: rgba(238, 226, 200, .5); /* --card-separator-color */
 
   color: var(--card-font-color);
   font-family: var(--app-font-family);
   font-weight: 600;
   margin: 0;
-}
-
-#root {
-  --pattern: rgba(238, 226, 200, .5); /* --card-separator-color */
   background-color: var(--pattern);
 }
