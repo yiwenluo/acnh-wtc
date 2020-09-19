@@ -1,6 +1,6 @@
 .filter-options {
   display: flex;
-  height: 32px;
+  height: 40px;
   color: var(--card-font-color);
   border-radius: 16px;
   justify-content: space-between;
@@ -12,14 +12,14 @@
 
 .filter-option {
   height: 100%;
-  line-height: 32px;
+  line-height: 40px;
   text-align: center;
   flex: 1;
 }
 
 .filter-option.active {
   background: var(--card-separator-color);
-  border-radius: 16px;
+  border-radius: 20px;
   color: var(--card-font-color);
 }
 
