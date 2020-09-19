@@ -6,15 +6,17 @@
   position: fixed;
   bottom: 16px;
   right: 16px;
-  width: 100px;
+  width: auto;
   height: 40px;
+  padding: 4px 16px;
 
-  border: 2px solid var(--card-font-color);
+  font-weight: 700;
   border-radius: 20px;
   box-sizing: border-box;
 
   background-color: var(--card-bg-color);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 
+      2px 4px 8px rgba(238, 226, 200, .48); /* seperator color */
 }
 
 .fab.expanded {
