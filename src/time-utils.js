@@ -16,16 +16,17 @@ const MONTH = [
 
 export function get12HrTime(time) {
   if (time > 12) {
-    return `${time - 12}PM`;
+    return `${time - 12}pm`;
   } else if (time >= 0) {
-    return `${time}AM`;
+    return `${time}am`;
   } 
   return '';
 }
 
 export function getMonthShort(month) {
   if (month - 1 >= 0) {
-    return MONTH[month - 1].slice(0, 3).toUpperCase();
+    const short = MONTH[month - 1].slice(0, 3);
+    return short.charAt(0).toUpperCase() + short.slice(1);
   }
   return '';
 }
